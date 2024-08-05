@@ -120,10 +120,11 @@ class MainWindow(QMainWindow):
 		self.update_display()
 
 	def eventFilter(self, source, event):
+		# hover stuff
 		if event.type() == QEvent.Enter and isinstance(source, QLabel):
 			for meter in self.meters:
 				if meter.label == source:
-					source.setText(f"ID: {meter.meter_id}")
+					source.setText(f"ID: {meter.meter_id}\n state: {meter.state}")
 					break
 		elif event.type() == QEvent.Leave and isinstance(source, QLabel):
 			for meter in self.meters:
