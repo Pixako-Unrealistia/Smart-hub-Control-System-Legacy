@@ -2,6 +2,7 @@ import json
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QLineEdit, QGridLayout, QMessageBox, QInputDialog, QFileDialog, QMenuBar, QTextEdit
 from PySide6.QtCore import Qt, QSize, QEvent, Signal, QObject
 from PySide6.QtGui import QAction
+import os
 
 import sys
 
@@ -117,7 +118,7 @@ class MainWindow(QMainWindow):
 		
 		# Attempt to load configuration from default file in ./config/default,json
 		try:
-			with open("./config/default.json", 'r') as file:
+			with open(os.path.join('config', 'default.json'), 'r') as file:
 				data = json.load(file)
 			self.meters = [Meter.from_dict(meter_data, self.listener_console.log_signal) for meter_data in data]
 			for meter in self.meters:
