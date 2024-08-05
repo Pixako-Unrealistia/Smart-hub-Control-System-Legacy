@@ -1,10 +1,12 @@
 import json
-from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QLineEdit, QGridLayout, QMessageBox, QInputDialog, QFileDialog
-from PySide6.QtCore import Qt, QSize, QEvent
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QLineEdit, QGridLayout, QMessageBox, QInputDialog, QFileDialog, QMenuBar, QTextEdit
+from PySide6.QtCore import Qt, QSize, QEvent, Signal, QObject
+from PySide6.QtGui import QAction
+
 import sys
 
 class Meter:
-	def __init__(self, meter_id, display_name):
+	def __init__(self, meter_id, display_name, signal_handler):
 		self.meter_id = meter_id
 		self.display_name = display_name
 		self.data = []
@@ -12,6 +14,7 @@ class Meter:
 		self.label = QLabel(display_name)
 		self.label.setFixedSize(QSize(100, 100))
 		self.update_label_color()
+		self.signal_handler = signal_handler
 
 	def update_label_color(self):
 		color = "green" if self.state else "lightblue"
@@ -20,6 +23,12 @@ class Meter:
 	def toggle_state(self):
 		self.state = not self.state
 		self.update_label_color()
+		if self.state:
+			self.send_signal()
+
+	def send_signal(self):
+		signal_data = f"Meter {self.meter_id} is now ON"
+		self.signal_handler(signal_data)
 
 	def to_dict(self):
 		return {
@@ -30,14 +39,26 @@ class Meter:
 		}
 
 	@classmethod
-	def from_dict(cls, data):
-		meter = cls(data["meter_id"], data["display_name"])
+	def from_dict(cls, data, signal_handler):
+		meter = cls(data["meter_id"], data["display_name"], signal_handler)
 		meter.data = data["data"]
 		meter.state = data["state"]
 		meter.label = QLabel(meter.display_name)
 		meter.label.setFixedSize(QSize(100, 100))
 		meter.update_label_color()
 		return meter
+
+class ListenerConsole(QWidget):
+	def __init__(self):
+		super().__init__()
+		self.setWindowTitle("Listener Console")
+		self.layout = QVBoxLayout(self)
+		self.console = QTextEdit()
+		self.console.setReadOnly(True)
+		self.layout.addWidget(self.console)
+
+	def log_signal(self, signal_data):
+		self.console.append(signal_data)
 
 class MainWindow(QMainWindow):
 	def __init__(self):
@@ -88,20 +109,57 @@ class MainWindow(QMainWindow):
 		self.current_page = 0
 		self.meters_per_page = 9
 
+		self.listener_console = ListenerConsole()
+
+		self.create_menu()
+
 		self.update_display()
+		
+		# Attempt to load configuration from default file in ./config/default,json
+		try:
+			with open("./config/default.json", 'r') as file:
+				data = json.load(file)
+			self.meters = [Meter.from_dict(meter_data, self.listener_console.log_signal) for meter_data in data]
+			for meter in self.meters:
+				meter.label.installEventFilter(self)
+			self.filtered_meters = self.meters
+			self.update_display()
+		except FileNotFoundError:
+			pass
+
+	def create_menu(self):
+		menu_bar = QMenuBar(self)
+		self.setMenuBar(menu_bar)
+
+		file_menu = menu_bar.addMenu("File")
+		save_action = QAction("Save Configuration", self)
+		save_action.triggered.connect(self.save_configuration)
+		file_menu.addAction(save_action)
+
+		load_action = QAction("Load Configuration", self)
+		load_action.triggered.connect(self.load_configuration)
+		file_menu.addAction(load_action)
+
+		view_menu = menu_bar.addMenu("View")
+		toggle_listener_action = QAction("Toggle Listener Console", self)
+		toggle_listener_action.triggered.connect(self.toggle_listener_console)
+		view_menu.addAction(toggle_listener_action)
+
+	def toggle_listener_console(self):
+		if self.listener_console.isVisible():
+			self.listener_console.hide()
+		else:
+			self.listener_console.show()
 
 	def add_meter(self):
 		meter_id, ok = QInputDialog.getText(self, "Add Meter", "Enter Meter ID:")
 		if not ok or not meter_id:
 			return
 
-		# Debug
 		if meter_id == "ADMIN":
 			for i in range(100):
 				display_name = f"Meter {len(self.meters) + 1}"
-				#name should be like MAC000313 (dynamic start from 1 with zero padding)
-				
-				meter = Meter(f"MAC{str(i+1).zfill(6)}", display_name)
+				meter = Meter(f"MAC{str(i+1).zfill(6)}", display_name, self.listener_console.log_signal)
 				meter.label.installEventFilter(self)
 				self.meters.append(meter)
 				self.filtered_meters = self.meters
@@ -113,14 +171,13 @@ class MainWindow(QMainWindow):
 			return
 
 		display_name = f"Meter {len(self.meters) + 1}"
-		meter = Meter(meter_id, display_name)
+		meter = Meter(meter_id, display_name, self.listener_console.log_signal)
 		meter.label.installEventFilter(self)
 		self.meters.append(meter)
 		self.filtered_meters = self.meters
 		self.update_display()
 
 	def eventFilter(self, source, event):
-		# hover stuff
 		if event.type() == QEvent.Enter and isinstance(source, QLabel):
 			for meter in self.meters:
 				if meter.label == source:
@@ -183,7 +240,12 @@ class MainWindow(QMainWindow):
 		with open(file_path, 'r') as file:
 			data = json.load(file)
 
-		self.meters = [Meter.from_dict(meter_data) for meter_data in data]
+		#clear FIRST
+		for meter in self.meters:
+			meter.label.deleteLater()
+		self.meters.clear()
+
+		self.meters = [Meter.from_dict(meter_data, self.listener_console.log_signal) for meter_data in data]
 		for meter in self.meters:
 			meter.label.installEventFilter(self)
 		self.filtered_meters = self.meters
@@ -194,16 +256,3 @@ if __name__ == "__main__":
 	window = MainWindow()
 	window.show()
 	sys.exit(app.exec())
-
-
-# 
-# from flask import Flask, jsonify
-# app = Flask(__name__)
-# 
-# @app.route('/meters', methods=['GET'])
-# def get_meters():
-#     data = [meter.to_dict() for meter in meters]
-#     return jsonify(data)
-# 
-# if __name__ == '__main__':
-#     app.run(debug=True)
