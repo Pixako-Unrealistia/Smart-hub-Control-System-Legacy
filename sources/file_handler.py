@@ -3,14 +3,18 @@ import glob
 import time
 import pandas as pd
 
-# Caution
-# Your machine will explode if you use the real database
-# Use with caution
 
 IDENTIFIER = "MAC000002"
+FILE_PATH = "mock_data/halfhourly_dataset"
 FILENAME = "block_0.csv"
 
-DIR = 'halfhourly_dataset'
+#DIR = 'halfhourly_dataset'
+
+# set current file path to one directroy above the directory of this file
+DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DIR = os.path.join(DIR, FILE_PATH)
+
+print(DIR)
 
 #csv_files = glob.glob(os.path.join(directory, 'block_*.csv'))
 
