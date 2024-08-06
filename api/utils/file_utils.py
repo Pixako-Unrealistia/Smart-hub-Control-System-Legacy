@@ -6,7 +6,6 @@ import time
 import pandas as pd
 
 
-
 def read_file():
     try:
         # Adjust the path to the config file
@@ -24,22 +23,44 @@ def read_file():
 def read_meter_csv(meter_id: str):
     try:
         IDENTIFIER = meter_id
-        FILE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "mock_data", "individuals")
+        BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        FILE_PATH = os.path.join(BASE_DIR, "mock_data", "individuals")
         FILENAME = f"{meter_id}.csv"
 
-        DIR = FILE_PATH
+        # Full path to the CSV file
+        file_path = os.path.join(FILE_PATH, FILENAME)
 
-        print(DIR)
+        # Check if the file exists
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f"File {file_path} does not exist.")
+
         # Read the CSV file
-        df = pd.read_csv(os.path.join(DIR, FILENAME))
+        df = pd.read_csv(file_path)
         
-        # Iterate through the rows with the specific LCLid
-        for index, row in df[df['LCLid'] == IDENTIFIER].iterrows():
-            print("-" * 10)
-            print(row)
-            time.sleep(1)
-    except FileNotFoundError:
-        raise HTTPException(status_code=404, detail=f"Meter file not found {DIR}/{FILENAME}")
+        # Filter the dataframe by the specific LCLid
+        filtered_df = df[df['LCLid'] == IDENTIFIER]
+        
+        # Convert the filtered dataframe to JSON
+        json_str = filtered_df.to_json(orient="records")
+        
+        # Parse the JSON string to remove escape characters
+        json_data = json.loads(json_str)
+
+        # Return the parsed JSON data
+        return json_data
+
+    except FileNotFoundError as fnf_error:
+        print(f"File not found error: {fnf_error}")
+        return None
+    except pd.errors.EmptyDataError:
+        print("The CSV file is empty.")
+        return None
+    except KeyError as ke:
+        print(f"Missing expected column: {ke}")
+        return None
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return None
 
 # list all meter in the system
 def scan_all_meter():
