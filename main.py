@@ -1,9 +1,9 @@
 import json
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QLineEdit, QGridLayout, QMessageBox, QInputDialog, QFileDialog, QMenuBar, QTextEdit
-from PySide6.QtCore import Qt, QSize, QEvent, Signal, QObject
-from PySide6.QtGui import QAction
+from PySide6.QtCore import Qt, QSize, QEvent, Signal, QObject, QTimer
+from PySide6.QtGui import QAction, QKeyEvent
 import os
-
+import datetime
 import sys
 
 class Meter:
@@ -16,6 +16,11 @@ class Meter:
 		self.label.setFixedSize(QSize(100, 100))
 		self.update_label_color()
 		self.signal_handler = signal_handler
+		self.timer = QTimer()
+		self.timer.timeout.connect(self.main_loop)
+
+	def main_loop(self):
+		self.signal_handler(f"Hello I am {self.display_name} time is {datetime.datetime.now()}")
 
 	def update_label_color(self):
 		color = "green" if self.state else "lightblue"
@@ -26,6 +31,9 @@ class Meter:
 		self.update_label_color()
 		if self.state:
 			self.send_signal()
+			self.timer.start(2000)
+		else:
+			self.timer.stop()
 
 	def send_signal(self):
 		signal_data = f"Meter {self.meter_id} is now ON"
