@@ -1,1 +1,602 @@
-[{"meter_id": "MAC000001", "display_name": "Meter 1", "data": [], "state": false}, {"meter_id": "MAC000002", "display_name": "Meter 2", "data": [], "state": false}, {"meter_id": "MAC000003", "display_name": "Meter 3", "data": [], "state": false}, {"meter_id": "MAC000004", "display_name": "Meter 4", "data": [], "state": false}, {"meter_id": "MAC000005", "display_name": "Meter 5", "data": [], "state": false}, {"meter_id": "MAC000006", "display_name": "Meter 6", "data": [], "state": false}, {"meter_id": "MAC000007", "display_name": "Meter 7", "data": [], "state": false}, {"meter_id": "MAC000008", "display_name": "Meter 8", "data": [], "state": false}, {"meter_id": "MAC000009", "display_name": "Meter 9", "data": [], "state": false}, {"meter_id": "MAC000010", "display_name": "Meter 10", "data": [], "state": false}, {"meter_id": "MAC000011", "display_name": "Meter 11", "data": [], "state": false}, {"meter_id": "MAC000012", "display_name": "Meter 12", "data": [], "state": false}, {"meter_id": "MAC000013", "display_name": "Meter 13", "data": [], "state": false}, {"meter_id": "MAC000014", "display_name": "Meter 14", "data": [], "state": false}, {"meter_id": "MAC000015", "display_name": "Meter 15", "data": [], "state": false}, {"meter_id": "MAC000016", "display_name": "Meter 16", "data": [], "state": false}, {"meter_id": "MAC000017", "display_name": "Meter 17", "data": [], "state": false}, {"meter_id": "MAC000018", "display_name": "Meter 18", "data": [], "state": false}, {"meter_id": "MAC000019", "display_name": "Meter 19", "data": [], "state": false}, {"meter_id": "MAC000020", "display_name": "Meter 20", "data": [], "state": false}, {"meter_id": "MAC000021", "display_name": "Meter 21", "data": [], "state": false}, {"meter_id": "MAC000022", "display_name": "Meter 22", "data": [], "state": false}, {"meter_id": "MAC000023", "display_name": "Meter 23", "data": [], "state": false}, {"meter_id": "MAC000024", "display_name": "Meter 24", "data": [], "state": false}, {"meter_id": "MAC000025", "display_name": "Meter 25", "data": [], "state": false}, {"meter_id": "MAC000026", "display_name": "Meter 26", "data": [], "state": false}, {"meter_id": "MAC000027", "display_name": "Meter 27", "data": [], "state": false}, {"meter_id": "MAC000028", "display_name": "Meter 28", "data": [], "state": false}, {"meter_id": "MAC000029", "display_name": "Meter 29", "data": [], "state": false}, {"meter_id": "MAC000030", "display_name": "Meter 30", "data": [], "state": false}, {"meter_id": "MAC000031", "display_name": "Meter 31", "data": [], "state": false}, {"meter_id": "MAC000032", "display_name": "Meter 32", "data": [], "state": false}, {"meter_id": "MAC000033", "display_name": "Meter 33", "data": [], "state": false}, {"meter_id": "MAC000034", "display_name": "Meter 34", "data": [], "state": false}, {"meter_id": "MAC000035", "display_name": "Meter 35", "data": [], "state": false}, {"meter_id": "MAC000036", "display_name": "Meter 36", "data": [], "state": false}, {"meter_id": "MAC000037", "display_name": "Meter 37", "data": [], "state": false}, {"meter_id": "MAC000038", "display_name": "Meter 38", "data": [], "state": false}, {"meter_id": "MAC000039", "display_name": "Meter 39", "data": [], "state": false}, {"meter_id": "MAC000040", "display_name": "Meter 40", "data": [], "state": false}, {"meter_id": "MAC000041", "display_name": "Meter 41", "data": [], "state": false}, {"meter_id": "MAC000042", "display_name": "Meter 42", "data": [], "state": false}, {"meter_id": "MAC000043", "display_name": "Meter 43", "data": [], "state": false}, {"meter_id": "MAC000044", "display_name": "Meter 44", "data": [], "state": false}, {"meter_id": "MAC000045", "display_name": "Meter 45", "data": [], "state": false}, {"meter_id": "MAC000046", "display_name": "Meter 46", "data": [], "state": false}, {"meter_id": "MAC000047", "display_name": "Meter 47", "data": [], "state": false}, {"meter_id": "MAC000048", "display_name": "Meter 48", "data": [], "state": false}, {"meter_id": "MAC000049", "display_name": "Meter 49", "data": [], "state": false}, {"meter_id": "MAC000050", "display_name": "Meter 50", "data": [], "state": false}, {"meter_id": "MAC000051", "display_name": "Meter 51", "data": [], "state": false}, {"meter_id": "MAC000052", "display_name": "Meter 52", "data": [], "state": false}, {"meter_id": "MAC000053", "display_name": "Meter 53", "data": [], "state": false}, {"meter_id": "MAC000054", "display_name": "Meter 54", "data": [], "state": false}, {"meter_id": "MAC000055", "display_name": "Meter 55", "data": [], "state": false}, {"meter_id": "MAC000056", "display_name": "Meter 56", "data": [], "state": false}, {"meter_id": "MAC000057", "display_name": "Meter 57", "data": [], "state": false}, {"meter_id": "MAC000058", "display_name": "Meter 58", "data": [], "state": false}, {"meter_id": "MAC000059", "display_name": "Meter 59", "data": [], "state": false}, {"meter_id": "MAC000060", "display_name": "Meter 60", "data": [], "state": false}, {"meter_id": "MAC000061", "display_name": "Meter 61", "data": [], "state": false}, {"meter_id": "MAC000062", "display_name": "Meter 62", "data": [], "state": false}, {"meter_id": "MAC000063", "display_name": "Meter 63", "data": [], "state": false}, {"meter_id": "MAC000064", "display_name": "Meter 64", "data": [], "state": false}, {"meter_id": "MAC000065", "display_name": "Meter 65", "data": [], "state": false}, {"meter_id": "MAC000066", "display_name": "Meter 66", "data": [], "state": false}, {"meter_id": "MAC000067", "display_name": "Meter 67", "data": [], "state": false}, {"meter_id": "MAC000068", "display_name": "Meter 68", "data": [], "state": false}, {"meter_id": "MAC000069", "display_name": "Meter 69", "data": [], "state": false}, {"meter_id": "MAC000070", "display_name": "Meter 70", "data": [], "state": false}, {"meter_id": "MAC000071", "display_name": "Meter 71", "data": [], "state": false}, {"meter_id": "MAC000072", "display_name": "Meter 72", "data": [], "state": false}, {"meter_id": "MAC000073", "display_name": "Meter 73", "data": [], "state": false}, {"meter_id": "MAC000074", "display_name": "Meter 74", "data": [], "state": false}, {"meter_id": "MAC000075", "display_name": "Meter 75", "data": [], "state": false}, {"meter_id": "MAC000076", "display_name": "Meter 76", "data": [], "state": false}, {"meter_id": "MAC000077", "display_name": "Meter 77", "data": [], "state": false}, {"meter_id": "MAC000078", "display_name": "Meter 78", "data": [], "state": false}, {"meter_id": "MAC000079", "display_name": "Meter 79", "data": [], "state": false}, {"meter_id": "MAC000080", "display_name": "Meter 80", "data": [], "state": false}, {"meter_id": "MAC000081", "display_name": "Meter 81", "data": [], "state": false}, {"meter_id": "MAC000082", "display_name": "Meter 82", "data": [], "state": false}, {"meter_id": "MAC000083", "display_name": "Meter 83", "data": [], "state": false}, {"meter_id": "MAC000084", "display_name": "Meter 84", "data": [], "state": false}, {"meter_id": "MAC000085", "display_name": "Meter 85", "data": [], "state": false}, {"meter_id": "MAC000086", "display_name": "Meter 86", "data": [], "state": false}, {"meter_id": "MAC000087", "display_name": "Meter 87", "data": [], "state": false}, {"meter_id": "MAC000088", "display_name": "Meter 88", "data": [], "state": false}, {"meter_id": "MAC000089", "display_name": "Meter 89", "data": [], "state": false}, {"meter_id": "MAC000090", "display_name": "Meter 90", "data": [], "state": false}, {"meter_id": "MAC000091", "display_name": "Meter 91", "data": [], "state": false}, {"meter_id": "MAC000092", "display_name": "Meter 92", "data": [], "state": false}, {"meter_id": "MAC000093", "display_name": "Meter 93", "data": [], "state": false}, {"meter_id": "MAC000094", "display_name": "Meter 94", "data": [], "state": false}, {"meter_id": "MAC000095", "display_name": "Meter 95", "data": [], "state": false}, {"meter_id": "MAC000096", "display_name": "Meter 96", "data": [], "state": false}, {"meter_id": "MAC000097", "display_name": "Meter 97", "data": [], "state": false}, {"meter_id": "MAC000098", "display_name": "Meter 98", "data": [], "state": false}, {"meter_id": "MAC000099", "display_name": "Meter 99", "data": [], "state": false}, {"meter_id": "MAC000100", "display_name": "Meter 100", "data": [], "state": false}]
+[
+    {
+        "meter_id": "MAC000001",
+        "display_name": "Meter 1",
+        "data": [],
+        "state": true
+    },
+    {
+        "meter_id": "MAC000002",
+        "display_name": "Meter 2",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000003",
+        "display_name": "Meter 3",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000004",
+        "display_name": "Meter 4",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000005",
+        "display_name": "Meter 5",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000006",
+        "display_name": "Meter 6",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000007",
+        "display_name": "Meter 7",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000008",
+        "display_name": "Meter 8",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000009",
+        "display_name": "Meter 9",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000010",
+        "display_name": "Meter 10",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000011",
+        "display_name": "Meter 11",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000012",
+        "display_name": "Meter 12",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000013",
+        "display_name": "Meter 13",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000014",
+        "display_name": "Meter 14",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000015",
+        "display_name": "Meter 15",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000016",
+        "display_name": "Meter 16",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000017",
+        "display_name": "Meter 17",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000018",
+        "display_name": "Meter 18",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000019",
+        "display_name": "Meter 19",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000020",
+        "display_name": "Meter 20",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000021",
+        "display_name": "Meter 21",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000022",
+        "display_name": "Meter 22",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000023",
+        "display_name": "Meter 23",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000024",
+        "display_name": "Meter 24",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000025",
+        "display_name": "Meter 25",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000026",
+        "display_name": "Meter 26",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000027",
+        "display_name": "Meter 27",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000028",
+        "display_name": "Meter 28",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000029",
+        "display_name": "Meter 29",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000030",
+        "display_name": "Meter 30",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000031",
+        "display_name": "Meter 31",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000032",
+        "display_name": "Meter 32",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000033",
+        "display_name": "Meter 33",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000034",
+        "display_name": "Meter 34",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000035",
+        "display_name": "Meter 35",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000036",
+        "display_name": "Meter 36",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000037",
+        "display_name": "Meter 37",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000038",
+        "display_name": "Meter 38",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000039",
+        "display_name": "Meter 39",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000040",
+        "display_name": "Meter 40",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000041",
+        "display_name": "Meter 41",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000042",
+        "display_name": "Meter 42",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000043",
+        "display_name": "Meter 43",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000044",
+        "display_name": "Meter 44",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000045",
+        "display_name": "Meter 45",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000046",
+        "display_name": "Meter 46",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000047",
+        "display_name": "Meter 47",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000048",
+        "display_name": "Meter 48",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000049",
+        "display_name": "Meter 49",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000050",
+        "display_name": "Meter 50",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000051",
+        "display_name": "Meter 51",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000052",
+        "display_name": "Meter 52",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000053",
+        "display_name": "Meter 53",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000054",
+        "display_name": "Meter 54",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000055",
+        "display_name": "Meter 55",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000056",
+        "display_name": "Meter 56",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000057",
+        "display_name": "Meter 57",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000058",
+        "display_name": "Meter 58",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000059",
+        "display_name": "Meter 59",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000060",
+        "display_name": "Meter 60",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000061",
+        "display_name": "Meter 61",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000062",
+        "display_name": "Meter 62",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000063",
+        "display_name": "Meter 63",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000064",
+        "display_name": "Meter 64",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000065",
+        "display_name": "Meter 65",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000066",
+        "display_name": "Meter 66",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000067",
+        "display_name": "Meter 67",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000068",
+        "display_name": "Meter 68",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000069",
+        "display_name": "Meter 69",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000070",
+        "display_name": "Meter 70",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000071",
+        "display_name": "Meter 71",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000072",
+        "display_name": "Meter 72",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000073",
+        "display_name": "Meter 73",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000074",
+        "display_name": "Meter 74",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000075",
+        "display_name": "Meter 75",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000076",
+        "display_name": "Meter 76",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000077",
+        "display_name": "Meter 77",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000078",
+        "display_name": "Meter 78",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000079",
+        "display_name": "Meter 79",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000080",
+        "display_name": "Meter 80",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000081",
+        "display_name": "Meter 81",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000082",
+        "display_name": "Meter 82",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000083",
+        "display_name": "Meter 83",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000084",
+        "display_name": "Meter 84",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000085",
+        "display_name": "Meter 85",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000086",
+        "display_name": "Meter 86",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000087",
+        "display_name": "Meter 87",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000088",
+        "display_name": "Meter 88",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000089",
+        "display_name": "Meter 89",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000090",
+        "display_name": "Meter 90",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000091",
+        "display_name": "Meter 91",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000092",
+        "display_name": "Meter 92",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000093",
+        "display_name": "Meter 93",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000094",
+        "display_name": "Meter 94",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000095",
+        "display_name": "Meter 95",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000096",
+        "display_name": "Meter 96",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000097",
+        "display_name": "Meter 97",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000098",
+        "display_name": "Meter 98",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000099",
+        "display_name": "Meter 99",
+        "data": [],
+        "state": false
+    },
+    {
+        "meter_id": "MAC000100",
+        "display_name": "Meter 100",
+        "data": [],
+        "state": false
+    }
+]
