@@ -1,5 +1,5 @@
 from fastapi import HTTPException
-from utils.file_utils import read_file
+from utils.file_utils import read_file, read_meter_csv, scan_all_meter
 import json
 import os
 
@@ -29,3 +29,10 @@ def update_meter_state(meter_id: str, state: bool):
                 json.dump(data, file, indent=4)
             return {"message": "Meter state updated successfully"}
     raise HTTPException(state_code=404, detail="Meter not found")
+
+
+def read_meter(meter_id: str):
+    return read_meter_csv(meter_id)
+
+def scan_meter():
+    return scan_all_meter()

@@ -5,6 +5,7 @@ from PySide6.QtGui import QAction, QKeyEvent
 import os
 import datetime
 import sys
+import requests
 
 class Meter:
 	def __init__(self, meter_id, display_name, signal_handler):
@@ -125,16 +126,45 @@ class MainWindow(QMainWindow):
 		self.update_display()
 		
 		# Attempt to load configuration from default file in ./config/default,json
-		try:
-			with open(os.path.join('config', 'default.json'), 'r') as file:
-				data = json.load(file)
-			self.meters = [Meter.from_dict(meter_data, self.listener_console.log_signal) for meter_data in data]
+		# try:
+		# 	with open(os.path.join('config', 'default.json'), 'r') as file:
+		# 		data = json.load(file)
+		# 	self.meters = [Meter.from_dict(meter_data, self.listener_console.log_signal) for meter_data in data]
+		# 	for meter in self.meters:
+		# 		meter.label.installEventFilter(self)
+		# 	self.filtered_meters = self.meters
+		# 	self.update_display()
+		# except FileNotFoundError:
+		# 	pass
+
+		self.scan_meters_and_create()
+		# MAC004962.csv
+		# MAC002526.csv
+		# MAC003176.csv
+
+	# scan and add meters
+	def scan_meters_and_create(self):
+		response = requests.get("http://localhost:8000/scan")
+		if response.status_code == 200:
+			data = response.json()
+			# print all the meters
+			# for meter in data:
+			# 	print(meter)
+			# only use id no MAC and .csv / cut the first 3 and last 4 and convert to int and sort
+			data = sorted([int(meter[3:-4]) for meter in data])
+			# print all the meters
+			# for meter in data:
+			# 	print(meter)
+			# create meters
+			self.meters = [Meter(meter, f"Meter {meter}", self.listener_console.log_signal) for meter in data]
 			for meter in self.meters:
 				meter.label.installEventFilter(self)
 			self.filtered_meters = self.meters
 			self.update_display()
-		except FileNotFoundError:
-			pass
+
+		else:
+			print("Error scanning meters")
+
 
 	def create_menu(self):
 		menu_bar = QMenuBar(self)

@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from routes import meter_routes
+import sys
+
 
 app = FastAPI()
 
@@ -8,6 +10,7 @@ app.include_router(meter_routes.router)
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
+
 
 if __name__ == "__main__":
     import uvicorn
