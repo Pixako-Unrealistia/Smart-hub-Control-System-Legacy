@@ -25,19 +25,28 @@ class Meter:
 		self.timer = QTimer()
 		self.timer.timeout.connect(self.main_loop)
 
+	
 	def read_meter(self, meter_id):
-		response = requests.get(f"http://localhost:8000/meter/{meter_id}/read")
+		response = requests.get(f"http://localhost:8000/meter/{meter_id}/read/")
 		if response.status_code == 200:
 			self.data = response.json()
 			return True
 		else:
 			return False
 
+	def read_meter_index(self, meter_id, index):
+		response = requests.get(f"http://localhost:8000/meter/{meter_id}/read/{index}")
+		if response.status_code == 200:
+			return response.json()
+		else:
+			return None
+
 	def main_loop(self):
 		if self.data is None:
 			self.data = []
 		if self.counter < len(self.data):
-			signal_data = f"Meter {self.meter_id} - {self.data[self.counter]}"
+			temp = self.read_meter_index(self.meter_id, self.counter)
+			signal_data = f"Meter {self.meter_id} - {temp}"
 			self.signal_handler(signal_data)
 			self.counter += 1
 		else:
