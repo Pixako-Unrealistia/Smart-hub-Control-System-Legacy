@@ -102,8 +102,9 @@ def read_meter_csv_index(meter_id: str, index: int):
             print(f"Missing expected column: {ke}")
             return None
         except Exception as e:
-            print(f"An error occurred: {e}")
-            return None
+            # print(f"An error occurred: {e}")
+            print(f"Meter lost connection")
+            return 0
     
 
 # list all meter in the system
