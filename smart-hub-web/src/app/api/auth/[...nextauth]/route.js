@@ -1,49 +1,77 @@
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { connectMongoDB } from "../../../../../lib/mongodb";
-import User from "../../../../../models/user"
-import bcrypt from "bcrypt";
+import User from "../../../../../models/user";
+import bcrypt from 'bcryptjs'
 
 const authOptions = {
-providers: [
-    CredentialsProvider({
-      name: "credentials",
-      credentials: {},
-      async authorize(credentials, req) {
+    providers: [
+        CredentialsProvider({
+          name: 'credentials',
+          credentials: {},
+          async authorize(credentials) {
+           
+            const { email, password } = credentials;
 
-        const { email, password } = credentials;
+            try {
 
-        try {
-            await connectMongoDB();
-            const user = await User.findOne({ email });
+                await connectMongoDB();
+                const user = await User.findOne({ email });
 
-            if (!user) {
-              return null;
+                if (!user) {
+                    return null;
+                }
+
+                const passwordMatch = await bcrypt.compare(password, user.password);
+
+                if (!passwordMatch) {
+                    return null;
+                }
+
+                console.log(user);
+                return user;
+
+            } catch(error) {
+                console.log("Error: ", error)
             }
 
-            const passwordMatch = await bcrypt.compare(password, user.password);
+          }
+        })
+    ],
+    session: {
+        strategy: "jwt"
+    },
+    secret: process.env.NEXTAUTH_SECRET,
+    pages: {
+        signIn: "/login"
+    },
+    callbacks: {
+        async jwt({ token, user, account, profile, isNewUser }) {
 
-            if (!passwordMatch) {
-              return null;
+            if (user) {
+                return {
+                    ...token,
+                    id: user._id,
+                    role: user.role
+                }
             }
 
-            return user;
-
-        } catch(error) {
-          console.log("Error: ",error);
+            return token
+        },
+        async session({ session, user, token }) {
+            return {
+                ...session,
+                user: {
+                    ...session.user,
+                    id: token.id,
+                    role: token.role
+                }
+            }
         }
-
-      }
-    })
-  ],
-  session:{
-    strategy: 'jwt',
-  },
-  secret: process.env.NEXTAUTH_SECRET,
-  pages: {
-    signIn: '/login',
-  }
+    }
 }
 
 const handler = NextAuth(authOptions);
-export { handler as GET, handler as POST};
+
+export { handler as GET, handler as POST }
+
