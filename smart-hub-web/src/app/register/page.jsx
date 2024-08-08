@@ -18,7 +18,7 @@ function RegisterPage() {
     const [success, setSuccess] = useState("");
 
     const { data: session } = useSession();
-    if (session) redirect('/welcome');
+    if (session) redirect('/dashboard');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -77,7 +77,7 @@ function RegisterPage() {
     <Container>
         <Navbar />
             <div className='flex-grow'>
-                <div className="flex justify-center items-center">
+                <div className="flex justify-center items-center my-40">
                     <div className='w-[400px] shadow-xl p-10 mt-5 rounded-xl'>
                         <h3 className='text-3xl'>Register Page</h3>
                         <hr className='my-3' />

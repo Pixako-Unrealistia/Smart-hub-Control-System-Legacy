@@ -18,7 +18,7 @@ function LoginPage() {
     const router = useRouter();
 
     const { data: session } = useSession();
-    if (session) router.replace('welcome');
+    if (session) router.replace('dashboard');
 
 
     const handleSubmit = async (e) => {
@@ -35,7 +35,7 @@ function LoginPage() {
                 return;
             }
 
-            router.replace("welcome");
+            router.replace("dashboard");
 
         } catch(error) {
             console.log(error);
@@ -46,7 +46,7 @@ function LoginPage() {
     <Container>
         <Navbar />
             <div className='flex-grow'>
-                <div className="flex justify-center items-center">
+                <div className="flex justify-center items-center my-40">
                     <div className='w-[400px] shadow-xl p-10 mt-5 rounded-xl'>
                         <h3 className='text-3xl'>Login Page</h3>
                         <hr className='my-3' />
