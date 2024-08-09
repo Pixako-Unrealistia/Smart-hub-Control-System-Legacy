@@ -1,16 +1,22 @@
+from calendar import c
 import json
+from signal import signal
+from time import sleep
+from turtle import delay
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QLineEdit, QGridLayout, QMessageBox, QInputDialog, QFileDialog, QMenuBar, QTextEdit
 from PySide6.QtCore import Qt, QSize, QEvent, Signal, QObject, QTimer
 from PySide6.QtGui import QAction, QKeyEvent
 import os
 import datetime
 import sys
+import requests
 
 class Meter:
 	def __init__(self, meter_id, display_name, signal_handler):
 		self.meter_id = meter_id
 		self.display_name = display_name
 		self.data = []
+		self.counter = 0
 		self.state = False
 		self.label = QLabel(display_name)
 		self.label.setFixedSize(QSize(100, 100))
@@ -19,8 +25,33 @@ class Meter:
 		self.timer = QTimer()
 		self.timer.timeout.connect(self.main_loop)
 
+	
+	def read_meter(self, meter_id):
+		response = requests.get(f"http://localhost:8000/meter/{meter_id}/read/")
+		if response.status_code == 200:
+			self.data = response.json()
+			return True
+		else:
+			return False
+
+	def read_meter_index(self, meter_id, index):
+		response = requests.get(f"http://localhost:8000/meter/{meter_id}/read/{index}")
+		if response.status_code == 200:
+			return response.json()
+		else:
+			return None
+
 	def main_loop(self):
-		self.signal_handler(f"Hello I am {self.display_name} time is {datetime.datetime.now()}")
+		if self.data is None:
+			self.data = []
+		if self.counter < len(self.data):
+			temp = self.read_meter_index(self.meter_id, self.counter)
+			signal_data = f"Meter {self.meter_id} - {temp}"
+			self.signal_handler(signal_data)
+			self.counter += 1
+		else:
+			self.timer.stop()
+		
 
 	def update_label_color(self):
 		color = "green" if self.state else "lightblue"
@@ -31,13 +62,15 @@ class Meter:
 		self.update_label_color()
 		if self.state:
 			self.send_signal()
-			self.timer.start(2000)
+			self.read_meter(self.meter_id)
+			self.timer.start(1000) # 1 second
 		else:
 			self.timer.stop()
 
 	def send_signal(self):
 		signal_data = f"Meter {self.meter_id} is now ON"
 		self.signal_handler(signal_data)
+	
 
 	def to_dict(self):
 		return {

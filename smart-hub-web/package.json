@@ -1,0 +1,34 @@
+{
+  "name": "smart-hub-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.13.1",
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@fontsource/roboto": "^5.0.14",
+    "@mui/icons-material": "^5.16.6",
+    "@mui/material": "^5.16.6",
+    "@mui/material-nextjs": "^5.16.6",
+    "bcryptjs": "^2.4.3",
+    "mongoose": "^8.5.2",
+    "next": "14.2.5",
+    "next-auth": "^4.24.7",
+    "pg": "^8.12.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "sequelize": "^6.37.3",
+    "sequelize-cli": "^6.6.2"
+  },
+  "devDependencies": {
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
+  },
+  "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903"
+}

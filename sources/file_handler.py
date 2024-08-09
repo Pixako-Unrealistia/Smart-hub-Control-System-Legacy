@@ -4,9 +4,9 @@ import time
 import pandas as pd
 
 
-IDENTIFIER = "MAC000002"
-FILE_PATH = "mock_data/halfhourly_dataset"
-FILENAME = "block_0.csv"
+IDENTIFIER = "MAC000027"
+FILE_PATH = "mock_data/individuals"
+FILENAME = "MAC000027.csv"
 
 #DIR = 'halfhourly_dataset'
 
