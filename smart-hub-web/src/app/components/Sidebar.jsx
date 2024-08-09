@@ -3,15 +3,16 @@ import Link from 'next/link';
 
 const Sidebar = ({ isVisible, toggleSidebar }) => {
   return (
-    <aside className={`fixed top-0 left-0 h-screen bg-gray-800 text-white ${isVisible ? 'w-64' : 'w-16'} transition-width duration-300`}>
-      <div className="relative p-5">
-        {isVisible && (
-          <button onClick={toggleSidebar} className="absolute top-4 right-4 bg-gray-700 p-2 rounded-md">
-            Close
-          </button>
-        )}
-        {isVisible && (
-          <>
+    <>
+      {isVisible && (
+        <aside className="fixed top-0 left-0 h-screen w-64 bg-gray-800 text-white transition-all duration-300">
+          <div className="relative p-5">
+            <button
+              onClick={toggleSidebar}
+              className="absolute top-4 right-4 bg-gray-700 p-2 rounded-md"
+            >
+              Close
+            </button>
             <h2 className="text-2xl font-bold mt-10">Dashboard</h2>
             <nav className="mt-5">
               <ul>
@@ -33,10 +34,18 @@ const Sidebar = ({ isVisible, toggleSidebar }) => {
                 {/* Add more links as needed */}
               </ul>
             </nav>
-          </>
-        )}
-      </div>
-    </aside>
+          </div>
+        </aside>
+      )}
+      {!isVisible && (
+        <button
+          onClick={toggleSidebar}
+          className="fixed top-4 left-4 bg-gray-700 p-2 rounded-md z-50"
+        >
+          Open
+        </button>
+      )}
+    </>
   );
 };
 

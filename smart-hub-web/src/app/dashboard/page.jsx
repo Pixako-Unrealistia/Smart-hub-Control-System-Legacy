@@ -1,16 +1,13 @@
-// src/app/Home.js
-
 "use client";
 
 import { useState, useEffect } from 'react';
 import Container from "../components/Container";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import MeterForm from "../components/MeterForm";
-import MeterList from "../components/MeterList";
 import MeterReport from "../components/MeterReport";
 import LoadingScreen from "../components/LoadingScreen";
+import MeterReadOut from "../components/MeterReadOut"; // Import the new component
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
@@ -61,6 +58,29 @@ export default function Home() {
         }
     };
 
+    const handleDeleteMeter = async (meterId) => {
+        try {
+            const response = await fetch('/api/deletemeter', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ meterId, ownerId: session.user.id }),
+            });
+    
+            const data = await response.json();
+            setMessage(data.message);
+    
+            if (response.status === 200) {
+                setMeters(meters.filter(meter => meter.meterId !== meterId));
+            } else {
+                console.error(`Failed to delete meter: ${data.message}`);
+            }
+        } catch (error) {
+            console.error("Error deleting meter:", error);
+        }
+    };
+    
     const toggleSidebar = () => {
         setIsSidebarVisible(!isSidebarVisible);
     };
@@ -113,21 +133,13 @@ export default function Home() {
                         <MeterForm onAddMeter={handleAddMeter} />
                         {message && <p className="mt-3">{message}</p>}
 
-                        <MeterReport count={meters.length} />
-                        <MeterList meters={meters} />
+                        <MeterReport meters={meters} onDeleteMeter={handleDeleteMeter} />
+                        {/* <MeterList meters={meters} /> */}
 
-                        <div className="mt-5">
-                            <h3 className="text-3xl">Meter Readings</h3>
-                            {meters.map((meter) => (
-                                <div key={meter.meterId} className="p-4 border rounded shadow-md mt-5">
-                                    <h4 className="text-xl">Meter ID: {meter.meterId}</h4>
-                                    <p className="text-lg">Energy: {readings[meter.meterId] || 'Loading...'}</p>
-                                </div>
-                            ))}
-                        </div>
+                        {/* Use the new MeterReadOut component */}
+                        <MeterReadOut meters={meters} readings={readings} />
                     </Container>
                 </main>
-                <Footer />
             </div>
         </div>
     );

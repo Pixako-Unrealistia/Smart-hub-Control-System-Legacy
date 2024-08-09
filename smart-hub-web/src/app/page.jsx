@@ -80,7 +80,7 @@ export default function Home() {
                         <MeterForm onAddMeter={handleAddMeter} />
                         {message && <p className="mt-3">{message}</p>}
                         
-                        <MeterList meters={meters} />
+                        {/* <MeterList meters={meters} /> */}
                     </Container>
                 </main>
                 <Footer />
