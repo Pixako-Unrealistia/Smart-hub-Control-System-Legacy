@@ -206,6 +206,7 @@ class MainWindow(QMainWindow):
 				self.meters.append(meter)
 				self.filtered_meters = self.meters
 				self.update_display()
+			self.auto_save_configuration()
 			return
 
 		if any(meter.meter_id == meter_id for meter in self.meters):
@@ -218,6 +219,7 @@ class MainWindow(QMainWindow):
 		self.meters.append(meter)
 		self.filtered_meters = self.meters
 		self.update_display()
+		self.auto_save_configuration()
 
 	def eventFilter(self, source, event):
 		if event.type() == QEvent.Enter and isinstance(source, QLabel):
@@ -272,6 +274,11 @@ class MainWindow(QMainWindow):
 
 		data = [meter.to_dict() for meter in self.meters]
 		with open(file_path, 'w') as file:
+			json.dump(data, file)
+
+	def auto_save_configuration(self):
+		with open(os.path.join('config', 'default.json'), 'w') as file:
+			data = [meter.to_dict() for meter in self.meters]
 			json.dump(data, file)
 
 	def load_configuration(self):
