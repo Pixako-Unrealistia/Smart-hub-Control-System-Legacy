@@ -102,7 +102,7 @@ export default function Home() {
                         const data = await response.json();
                         setReadings(prevReadings => ({
                             ...prevReadings,
-                            [meter.meterId]: data["energy(kWh/hh)"],
+                            [meter.meterId]:data ? data["energy(kWh/hh)"] : 'N/A',
                         }));
                     } catch (error) {
                         console.error('Failed to fetch meter data:', error);
