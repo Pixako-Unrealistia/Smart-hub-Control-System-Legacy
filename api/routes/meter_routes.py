@@ -19,9 +19,9 @@ async def get_meter_display_name_route(meter_id: str):
 # async def update_meter_status(meter_id: str, status: str):
 #     return update_meter_status(meter_id, status)
 
-@router.put("/meter/{meter_id}/state")
-async def update_meter_state_route(meter_id: str, meter_state: MeterStateUpdate):
-    return update_meter_state(meter_id, meter_state.state)
+# @router.put("/meter/{meter_id}/{state}")
+# async def update_meter_state_route(meter_id: str, meter_state: str):
+#     return update_meter_state(meter_id, meter_state.state)
 
 # switch on meter
 @router.put("/meter/{meter_id}/on")
