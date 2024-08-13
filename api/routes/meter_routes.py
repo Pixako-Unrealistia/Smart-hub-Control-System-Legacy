@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from handlers.meter_handler import get_meter_data, get_meter_display_name, update_meter_state, read_meter, scan_meter, read_meter_index
+from handlers.meter_handler import get_meter_data, get_meter_display_name, update_meter_state, read_meter, scan_meter, read_meter_index, post_meter
 from schemas.meter_schema import MeterStateUpdate
 
 import json
@@ -44,4 +44,9 @@ async def read_meter_index_route(meter_id: str, index: int):
 @router.get("/scan")
 async def scan_meter_route():
     return scan_meter()
+
+@router.post("/meter/{meter_id}/{index}")
+async def post_meter_route(meter_id: str, index: int):
+    return post_meter(meter_id, index)
+
 

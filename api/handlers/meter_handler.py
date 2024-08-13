@@ -1,5 +1,5 @@
 from fastapi import HTTPException
-from utils.file_utils import read_file, read_meter_csv, scan_all_meter, read_meter_csv_index
+from utils.file_utils import read_file, read_meter_csv, scan_all_meter, read_meter_csv_index, post_meter_data
 import json
 import os
 
@@ -38,3 +38,6 @@ def read_meter_index(meter_id: str, index: int):
 
 def scan_meter():
     return scan_all_meter()
+
+def post_meter(meter_id: str, index: int):
+    return post_meter_data(meter_id, index)
