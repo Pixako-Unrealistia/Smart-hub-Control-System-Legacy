@@ -61,7 +61,7 @@ export default function Home() {
     const handleDeleteMeter = async (meterId) => {
         try {
             const response = await fetch('/api/deletemeter', {
-                method: 'POST',
+                method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
                 },

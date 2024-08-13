@@ -11,6 +11,8 @@ import datetime
 import sys
 import requests
 
+from api.utils.file_utils import post_meter_data
+
 class Meter:
 	def __init__(self, meter_id, display_name, signal_handler):
 		self.meter_id = meter_id
@@ -41,10 +43,18 @@ class Meter:
 		else:
 			return None
 
+	def post_meter_data(self, meter_id, index):
+		response = requests.post(f"http://localhost:8000/meter/{meter_id}/{index}")
+		if response.status_code == 200:
+			return True
+		else:
+			return False
+
 	def main_loop(self):
 		if self.data is None:
 			self.data = []
 		if self.counter < len(self.data):
+			post_meter_data(self.meter_id, self.counter)
 			temp = self.read_meter_index(self.meter_id, self.counter)
 			signal_data = f"Meter {self.meter_id} - {temp}"
 			self.signal_handler(signal_data)

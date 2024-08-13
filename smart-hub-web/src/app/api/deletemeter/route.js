@@ -3,7 +3,7 @@ import { connectMongoDB } from '../../../../lib/mongodb';
 import Meter from '../../../../models/meter';
 import User from '../../../../models/user';
 
-export async function POST(req) {
+export async function DELETE(req) {
     try {
         const { meterId, ownerId } = await req.json();
 
