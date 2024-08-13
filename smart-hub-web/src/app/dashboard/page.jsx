@@ -89,9 +89,9 @@ export default function Home() {
         if (meters.length > 0) {
             const interval = setInterval(async () => {
                 for (const meter of meters) {
-                    try {
-                        const response = await fetch(`http://127.0.0.1:8000/meter/${meter.meterId}/read/${counter}`, {
-                            method: 'GET',
+                    try {                 
+                        const response = await fetch(`http://127.0.0.1:8000/meter/${meter.meterId}/${counter}`, {
+                            method: 'POST',
                             headers: {
                                 'accept': 'application/json',
                             },

@@ -3,4 +3,5 @@
 /mock_data/individuals
 /venv
 /note.txt
+/mock_data/posted
 *.pyc
