@@ -5,3 +5,5 @@
 /note.txt
 /mock_data/posted
 *.pyc
+/DS_Store
+mock_data/.DS_Store
