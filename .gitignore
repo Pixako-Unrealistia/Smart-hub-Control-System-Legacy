@@ -7,3 +7,4 @@
 *.pyc
 /DS_Store
 mock_data/.DS_Store
+smart-hub-web/.env
